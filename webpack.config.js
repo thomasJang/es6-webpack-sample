@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const basePath = __dirname
 
 module.exports = {
@@ -30,5 +31,12 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     port: 4000
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html',
+      hash: true
+    })
+  ]
 }
